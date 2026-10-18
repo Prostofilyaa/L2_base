@@ -1,19 +1,14 @@
-function primeFactors(n) {
-  let strokaOtveta = "";
-  let chislo = n;
-  for (let i = 2; i <= chislo; i++) {
-    let stepen = 0;
-    while (chislo % i === 0) {
-      stepen = stepen + 1;
-      chislo = chislo / i;
+function wave(str){
+  let resultMassiv = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      continue; 
     }
-    if (stepen > 0) {
-      if (stepen === 1) {
-        strokaOtveta = strokaOtveta + "(" + i + ")";
-      } else {
-        strokaOtveta = strokaOtveta + "(" + i + "**" + stepen + ")";
-      }
-    }
+    let doBukvy = str.slice(0, i);
+    let tekushchayaBolshaya = str[i].toUpperCase();
+    let posleBukvy = str.slice(i + 1);
+    let novoeSlovo = doBukvy + tekushchayaBolshaya + posleBukvy;
+    resultMassiv.push(novoeSlovo);
   }
-  return strokaOtveta;
+  return resultMassiv;
 }
