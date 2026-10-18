@@ -1,17 +1,15 @@
-function toWeirdCase(string){
-  let slova = string.split(' ');
-  let novyeSlova = [];
-  for (let i = 0; i < slova.length; i++) {
-    let slovo = slova[i];
-    let izmenennoeSlovo = "";
-    for (let j = 0; j < slovo.length; j++) {
-      if (j % 2 === 0) {
-        izmenennoeSlovo = izmenennoeSlovo + slovo[j].toUpperCase();
-      } else {
-        izmenennoeSlovo = izmenennoeSlovo + slovo[j].toLowerCase();
+function expandedForm(num) {
+  let strokaChisla = num.toString();
+  let massivChastej = [];
+  for (let i = 0; i < strokaChisla.length; i++) {
+    if (strokaChisla[i] !== '0') {
+      let nuli = "";
+      let kolichestvoNulej = strokaChisla.length - i - 1;
+      for (let j = 0; j < kolichestvoNulej; j++) {
+        nuli = nuli + "0";
       }
+      massivChastej.push(strokaChisla[i] + nuli);
     }
-    novyeSlova.push(izmenennoeSlovo);
   }
-  return novyeSlova.join(' ');
+  return massivChastej.join(' + ');
 }
