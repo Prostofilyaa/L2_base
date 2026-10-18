@@ -1,15 +1,22 @@
-function expandedForm(num) {
-  let strokaChisla = num.toString();
-  let massivChastej = [];
-  for (let i = 0; i < strokaChisla.length; i++) {
-    if (strokaChisla[i] !== '0') {
-      let nuli = "";
-      let kolichestvoNulej = strokaChisla.length - i - 1;
-      for (let j = 0; j < kolichestvoNulej; j++) {
-        nuli = nuli + "0";
+function bingo(ticket, win){
+  let kolichestvoPobed = 0;
+  for (let i = 0; i < ticket.length; i++) {
+    let kartochка = ticket[i];
+    let stroka = kartochка[0];
+    let chislo = kartochка[1];
+    let estSovpadenie = false;
+    for (let j = 0; j < stroka.length; j++) {
+      if (stroka.charCodeAt(j) === chislo) {
+        estSovpadenie = true;
       }
-      massivChastej.push(strokaChisla[i] + nuli);
+    }
+    if (estSovpadenie === true) {
+      kolichestvoPobed = kolichestvoPobed + 1;
     }
   }
-  return massivChastej.join(' + ');
+  if (kolichestvoPobed >= win) {
+    return 'Winner!';
+  } else {
+    return 'Loser!';
+  }
 }
