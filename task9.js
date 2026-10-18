@@ -1,14 +1,13 @@
-function wave(str){
+function solution(str){
   let resultMassiv = [];
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === " ") {
-      continue; 
+  for (let i = 0; i < str.length; i = i + 2) {
+    let pervyjSimvol = str[i];
+    let vtorojSimvol = str[i + 1];
+    if (vtorojSimvol === undefined) {
+      vtorojSimvol = "_";
     }
-    let doBukvy = str.slice(0, i);
-    let tekushchayaBolshaya = str[i].toUpperCase();
-    let posleBukvy = str.slice(i + 1);
-    let novoeSlovo = doBukvy + tekushchayaBolshaya + posleBukvy;
-    resultMassiv.push(novoeSlovo);
+    let para = pervyjSimvol + vtorojSimvol;
+    resultMassiv.push(para);
   }
   return resultMassiv;
 }
